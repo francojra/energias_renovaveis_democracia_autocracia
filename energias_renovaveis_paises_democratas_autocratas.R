@@ -79,6 +79,16 @@ ggplot(energ1, aes(x = fct_reorder(Entity, media),
   theme(legend.position = "none",
         axis.text = element_text(color = "black"))
 
+ggplot(energ2, aes(x = Year, y = por_energ,
+                   group = Entity, color = Entity)) +
+  geom_point(shape = 15, size = 2.5) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = c("#88CCEE", "#CC6677",
+                               "#DDCC77", "#117733",
+                               "#332288", "#AA4499")) +
+  labs(x = "Tempo (anos)", y = "Energias renováveis (%)") +
+  theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
+  theme(axis.text = element_text(color = "black"))
 
 
 
