@@ -30,6 +30,26 @@ library(cols4all)
 library(hrbrthemes)
 library(ggthemes)
 
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
+energ <- read.csv("renewable-share-energy.csv")
+view(energ)
+names(energ)
+
+# Manipular dados --------------------------------------------------------------------------------------------------------------------------
+
+energ <- energ %>%
+  select(-Code) %>%
+  rename(por_energ = Renewables....equivalent.primary.energy.) %>%
+  view()
+
+energ1 <- energ %>%
+  filter(Entity %in% c("United States", "Japan", "Germany",
+                       "Cuba", "China", "North Korea")) %>%
+  group_by(Entity) %>%
+  summarise(media = mean(por_energ),
+            sd = sd(por_energ), n = n(),
+            se = sd/sqrt(n)) %>%
+  view()
 
 
