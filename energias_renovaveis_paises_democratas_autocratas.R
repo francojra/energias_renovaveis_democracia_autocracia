@@ -52,4 +52,15 @@ energ1 <- energ %>%
             se = sd/sqrt(n)) %>%
   view()
 
+energ2 <- energ %>%
+  filter(Entity %in% c("United States", "Japan", "Germany",
+                       "Cuba", "China", "North Korea")) %>%
+  view()
+
+energ3 <- energ %>%
+  filter(Entity %in% c("United States", "China", "Brazil")) %>%
+  view()  
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
 
