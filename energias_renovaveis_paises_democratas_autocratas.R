@@ -63,4 +63,24 @@ energ3 <- energ %>%
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
+ggplot(energ1, aes(x = fct_reorder(Entity, media), 
+                   y = media, fill = Entity)) +
+  geom_col(width = 0.9) +
+  geom_errorbar(aes(ymin = media - se, ymax = media + se),
+                width = 0.2, size = 0.8) +
+  scale_fill_manual(values = c("#88CCEE", "#CC6677",
+                               "#DDCC77", "#117733",
+                               "#332288", "#AA4499")) +
+  scale_y_continuous(expand = expansion(mult = c(0,0))) +
+  scale_x_discrete(labels = c("Alemanha", "Estados Unidos",
+                              "China", "Japão")) +
+  labs(x = "Países", y = "Energias renováveis (%)") +
+  theme_ipsum(axis_text_size = 14, axis_title_size = 16) +
+  theme(legend.position = "none",
+        axis.text = element_text(color = "black"))
+
+
+
+
+
 
